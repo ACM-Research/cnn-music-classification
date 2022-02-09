@@ -10,8 +10,8 @@ slides can be found [here](https://docs.google.com/presentation/d/1BXf9Ek__3f6pE
 ## to-do
 * look over Python/Numpy tutorial
 * read "Neural Networks"
-* read "Linear Algebra Overview"
-* read "ML Overview"
+* read "Linear Algebra Overview" (beginning to 2.6 inclusive)
+* read "ML Overview" (beginning to 5.4 inclusive, 5.9)
 
 ## resources
 * [Python/Numpy Tutorial](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb)
