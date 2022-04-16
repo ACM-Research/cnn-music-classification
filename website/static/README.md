@@ -1,0 +1,1 @@
+This folder is where static files will be located that can be served.
