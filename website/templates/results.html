@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- index.html is the file the root domain will point to by default -->
+    <head>
+        <title> Music Classification </title>
+        <meta name="description" content="an interface for classifying music through neural networks">
+        <meta name="keywords" content="Neural networks, ACM, UT Dallas">
+        <!--you really shouldn't use interal CSS like this, to be clear but whatever-->
+        <link rel="stylesheet" href="static/styles.css">
+    </head>
+    <body>
+        <div>
+            <header id="main-header">
+                <p class="gradientText">Music Genre Classification</p>
+            </header>
+        </div>
+
+        <nav id="nav-bar">
+            Created by Agastya Bose, Ethan Emmanuel, Jack Myrick, Zayne Lumpkin, & Megan Vu for ACM Research at UT Dallas 
+        </nav>
+        
+        <section class="container">
+            <h1>Genre Prediction</h1>
+            <audio controls>
+                <source src={{ 'static/' + filename }} type="audio/mp3">
+            </audio>
+            <p>{{filename}}</p>
+            <table>
+                <tr>
+                    <th>Genre</th>
+                    <th>Confidence</th>
+                </tr>
+                {% for i, (genre, confidence) in enumerate(predictions.items()) %}
+                    <tr>
+                        <td>{% if i == 0 %}<strong>{% endif %}{{genre}}{% if i == 0 %}</strong>{% endif %}</td>
+                        <td>{{"{:.2%}".format(confidence)}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </container>
+    </body>
+</html>

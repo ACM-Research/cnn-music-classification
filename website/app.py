@@ -1,7 +1,7 @@
 import os
 import librosa
 import youtube_dl
-from flask import Flask, request
+from flask import Flask, request, render_template
 from tensorflow import keras
 from werkzeug.utils import secure_filename
 
@@ -34,44 +34,12 @@ def home():
                     return 'An error occurred. Either the link is invalid or the download failed. If you are sure the link is correct, retry using the same link.'
         else:
             return 'No song found'
-        
         try:
             predictions = predict('static/' + filename)
         except:
             return 'Invalid audio file. Please upload a valid mp3 file.'
-        html_table = ""
-        for i, (genre, confidence) in enumerate(predictions.items()):
-            html_table += f"""
-            <tr>
-                <td>{genre if i != 0 else '<strong>' + genre + '</strong>'}</td>
-                <td>{"{:.2%}".format(confidence)}</td>
-            </tr>
-            """
-
-        return f"""
-        <h1>Genre Prediction</h1>
-        <audio controls>
-            <source src={'static/' + filename} type="audio/mp3">
-        </audio>
-        <p>{filename}</p>
-        <table>
-        <tr>
-            <th>Genre</th>
-            <th>Confidence</th>
-        </tr>
-        """ + html_table
-    return """
-    <h1>Music Genre Classification</h1>
-    <p>Upload an mp3 file or enter a YouTube link (warning: may take a while to download, especially for long videos) for our model to classify which genre it is.</p>
-    <form method=post enctype=multipart/form-data>
-        <input type=file name=song />
-        <input type=submit value=Upload />
-    </form>
-    <form method=post enctype=multipart/form-data>
-        <input type=text name=youtube_url placeholder="YouTube URL" />
-        <input type=submit value=Submit />
-    </form>
-    """
+        return render_template('results.html', filename=filename, predictions=predictions, enumerate=enumerate)
+    return render_template('prompt.html')
 
 model = keras.models.load_model('trained_model')
 
