@@ -34,10 +34,16 @@ body{
 	max-width: 80ch;
 }
 
+.data{
+	display: flex;
+	flex-direction: row;
+	margin: 30px;
+}
+
 .button{
 	background-color: powderblue;
 	color: #333;
-	padding: 10px 15px
+	padding: 10px 15px;
 	margin: 0px;
 	border: 0px;
 	transition: 0.5s;

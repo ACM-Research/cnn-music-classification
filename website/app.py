@@ -1,6 +1,7 @@
 import os
 import librosa
 import youtube_dl
+import matplotlib.pyplot as plt
 from flask import Flask, request, render_template
 from tensorflow import keras
 from werkzeug.utils import secure_filename
@@ -38,7 +39,14 @@ def home():
             predictions = predict('static/' + filename)
         except:
             return 'Invalid audio file. Please upload a valid mp3 file.'
-        return render_template('results.html', filename=filename, predictions=predictions, enumerate=enumerate)
+        labels = predictions.keys()
+        sizes = predictions.values()
+        fig, ax = plt.subplots()
+        ax.pie(sizes)
+        plt.legend(labels)
+        ax.axis('equal')
+        plt.savefig(f'static/{filename}.png')
+        return render_template('results.html', filename=filename, predictions=predictions, image=f'static/{filename}.png', enumerate=enumerate)
     return render_template('prompt.html')
 
 model = keras.models.load_model('trained_model')

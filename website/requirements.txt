@@ -3,3 +3,4 @@ librosa==0.9.1
 tensorflow_cpu==2.8.0
 Werkzeug==2.1.1
 youtube_dl==2021.12.17
+matplotlib==3.5.1

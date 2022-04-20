@@ -24,18 +24,21 @@
                 <source src={{ 'static/' + filename }} type="audio/mp3">
             </audio>
             <p>{{filename}}</p>
-            <table>
-                <tr>
-                    <th>Genre</th>
-                    <th>Confidence</th>
-                </tr>
-                {% for i, (genre, confidence) in enumerate(predictions.items()) %}
+            <div class="data">
+                <table>
                     <tr>
-                        <td>{% if i == 0 %}<strong>{% endif %}{{genre}}{% if i == 0 %}</strong>{% endif %}</td>
-                        <td>{{"{:.2%}".format(confidence)}}</td>
+                        <th>Genre</th>
+                        <th>Confidence</th>
                     </tr>
-                {% endfor %}
-            </table>
+                    {% for i, (genre, confidence) in enumerate(predictions.items()) %}
+                        <tr>
+                            <td>{% if i == 0 %}<strong>{% endif %}{{genre}}{% if i == 0 %}</strong>{% endif %}</td>
+                            <td>{{"{:.2%}".format(confidence)}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <img src={{image}} alt="Pie Chart">
+            </div>
         </container>
     </body>
 </html>
