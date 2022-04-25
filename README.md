@@ -1,16 +1,16 @@
 # Classification of Music using Convolutional Neural Networks
 
-** ACM Research, Spring 2022 **
+**ACM Research, Spring 2022**
+
 ![](https://raw.githubusercontent.com/ACM-Research/cnn-music-classification/main/Classification_of_Music_using_Convolutional_Neural_Networks.png)
 
 ## Table of Contents
 - Table of Contents
 - Abstract
-- Background
-- Data Collection
+- Dataset
+- Data Preprocessing
 - Model
 - Results
-- Web Demo
 - Contributors
 
 ## Abstract
