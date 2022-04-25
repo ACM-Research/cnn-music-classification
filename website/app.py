@@ -61,7 +61,7 @@ genre_dict = {
     1 : "classical",
     2 : "country",
     3 : "disco",
-    4 : "hiphop",
+    4 : "hip-hop",
     5 : "jazz",
     6 : "metal",
     7 : "pop",
