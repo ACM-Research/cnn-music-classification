@@ -38,7 +38,7 @@ We used the `numpy` and `keras` libraries extensively to implement our convoluti
 Our model drew on previous example codebases for inspiration. It samples various Kaggle implementations on the GTZAN data-set. After the aforementioned data preprocessing, we associated each sample with its corresponding genre using one-hot encoding. We split the data-set into 3 independent sets: train, validation, and test. Our model is composed of a series of convolutional layers with max pooling layers to reduce dimensionality and batch normalization layers to normalize data to have consistent mean and standard deviation as intermediaries. Finally, a dense layer layer of 64 neurons connects to a final dense layer which outputs predictions for each of the 10 genres in the data set.
 
 ## Results
-After training the model on the training data, we tested its accuracy on an independent test data-set. Accuracy on the test set was approximately 76.24%. 
+After training the model on the training data, we tested its accuracy on an independent test data-set. Accuracy on the test set was approximately 77.42%. 
         
 The training progression is shown below.
         
